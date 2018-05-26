@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :article
   validates :commenter, presence: true
-  validates :body, presence: true, length: { in: 6..500 }
+  validates :body, presence: true, length: { in: 6..500 } #pominięty nawias, bo hash na koncu
   validate :must_contain_at
 
 
@@ -11,6 +11,10 @@ class Comment < ApplicationRecord
     return if commenter.include? '@'
     errors.add :commenter, 'should contain at'
   end
+
+
+
+
 
 
 end
