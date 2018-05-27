@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params.merge(article_id: @article.id))
     # @comment = @article.comments.build(comment_params)
     if @comment.save
+      session[:commenter] = @comment.commenter
       redirect_to @article
     else
       render 'articles/show'
