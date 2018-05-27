@@ -5,7 +5,11 @@ class ArticlesController < ApplicationController
   except: [:index, :show]
 
   def index
+    if params[:q].present?
+      @articles = Article.where("? = any(tags)", params[:q])
+    else
     @articles = Article.all
+    end
   end
 
   def new
