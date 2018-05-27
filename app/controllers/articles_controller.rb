@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     if params[:q].present?
       @articles = Article.where("? = any(tags)", params[:q])
     else
-    @articles = Article.all
+      @articles = Article.all
     end
   end
 
