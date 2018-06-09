@@ -9,6 +9,12 @@
   <%= @article.tags.join(', ') %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @article.user.email %>
+</p>
+
+
 <h3>Comments</h3>
 
 <%= render @article.comments %>
