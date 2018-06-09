@@ -14,8 +14,13 @@
   <%= @article.user.email %>
 </p>
 
-<%= link_to 'Like', article_likes_path(@article), method: :post, class: 'btn btn-success' %>
+<p>
+  <strong>Likes:</strong>
+  <%= @article.likes.count %>
+</p>
 
+<%= link_to 'Like', article_likes_path(@article), method: :post, class: 'btn btn-success' %>
+  
 
 <h3>Comments</h3>
 
