@@ -14,6 +14,17 @@
   <%= @article.user.email %>
 </p>
 
+<p>
+  <strong>Likes:</strong>
+  <%= @article.likes.count %>
+</p>
+
+<% if already_liked?(current_user, @article) %>
+  <%= link_to 'Unlike', article_like_path(@article, user_like(current_user, @article)), method: :delete, class: 'btn btn-success' %>
+<% else %>
+  <%= link_to 'Like', article_likes_path(@article), method: :post, class: 'btn btn-success' %>
+<% end %>
+<hr>
 
 <h3>Comments</h3>
 
